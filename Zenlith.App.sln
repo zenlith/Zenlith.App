@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenlith.App.Module", "Zenli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenlith.App.Blazor.Server", "Zenlith.App.Blazor.Server\Zenlith.App.Blazor.Server.csproj", "{B5F2363E-DAF0-4BE3-B8EE-3D5374F1D845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenlith.Model", "Zenlith.Model\Zenlith.Model.csproj", "{485E16D2-6119-4AD3-95EB-078E4B9F6E09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,12 @@ Global
 		{B5F2363E-DAF0-4BE3-B8EE-3D5374F1D845}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{B5F2363E-DAF0-4BE3-B8EE-3D5374F1D845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F2363E-DAF0-4BE3-B8EE-3D5374F1D845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485E16D2-6119-4AD3-95EB-078E4B9F6E09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
