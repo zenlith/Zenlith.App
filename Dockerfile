@@ -4,5 +4,6 @@ WORKDIR /workdir/
 RUN dotnet restore
 RUN dotnet build -c Release -o output
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+COPY start.sh /bin/start.sh
 COPY --from=build /workdir/output .
-ENTRYPOINT ["dotnet", "Zenlith.App.Blazor.Server.dll"]
+ENTRYPOINT ["start.sh"]
