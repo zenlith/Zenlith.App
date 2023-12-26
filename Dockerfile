@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-COPY . ./docker-size-test
-WORKDIR /docker-size-test/
+COPY . ./workdir
+WORKDIR /workdir/
 RUN dotnet restore
 RUN dotnet build -c Release -o output
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
-COPY --from=build /docker-size-test/output .
-ENTRYPOINT ["dotnet", "docker-size-test.dll"]
+COPY --from=build /workdir/output .
+ENTRYPOINT ["dotnet", "Zenlith.App.Blazor.Server.dll"]
