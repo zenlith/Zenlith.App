@@ -1,14 +1,8 @@
-﻿using System.ComponentModel;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
-using DevExpress.ExpressApp.Model;
-using DevExpress.ExpressApp.Actions;
-using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Model.Core;
-using DevExpress.ExpressApp.Model.DomainLogics;
-using DevExpress.ExpressApp.Model.NodeGenerators;
+using Zenlith.Model;
 
 namespace Zenlith.App.Module;
 
@@ -27,6 +21,8 @@ public sealed class AppModule : ModuleBase {
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule));
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));
 		DevExpress.ExpressApp.Security.SecurityModule.UsedExportedTypes = DevExpress.Persistent.Base.UsedExportedTypes.Custom;
+		
+		AdditionalExportedTypes.Add(typeof(ZenConfig));
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
         ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
@@ -36,4 +32,14 @@ public sealed class AppModule : ModuleBase {
         base.Setup(application);
         // Manage various aspects of the application UI and behavior at the module level.
     }
+    
+    public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
+	    base.CustomizeTypesInfo(typesInfo);
+	    TypeInfo typeInfo = typesInfo.FindTypeInfo(typeof(ZenConfig)) as TypeInfo;
+	    if (typeInfo != null) {
+		    typeInfo.AddAttribute(new DefaultClassOptionsAttribute());
+	    }
+    }
+    
+    
 }

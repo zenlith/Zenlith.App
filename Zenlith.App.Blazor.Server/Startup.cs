@@ -64,7 +64,7 @@ public class Startup {
                     }
 #endif
                     ArgumentNullException.ThrowIfNull(connectionString);
-                    options.UseSqlServer(connectionString);
+                    options.UseSqlServer(connectionString,b=>b.MigrationsAssembly("Zenlith.Migrations"));
                     options.UseLazyLoadingProxies();
                 })
                 .AddNonPersistent();

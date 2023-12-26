@@ -5,30 +5,24 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.ExpressApp.Design;
 using DevExpress.ExpressApp.EFCore.DesignTime;
+using Zenlith.Model;
 
 namespace Zenlith.App.Module.BusinessObjects;
 
-// This code allows our Model Editor to get relevant EF Core metadata at design time.
-// For details, please refer to https://supportcenter.devexpress.com/ticket/details/t933891.
-public class AppContextInitializer : DbContextTypesInfoInitializerBase {
-	protected override DbContext CreateDbContext() {
-		var optionsBuilder = new DbContextOptionsBuilder<AppEFCoreDbContext>()
-            .UseSqlServer(";");
-        return new AppEFCoreDbContext(optionsBuilder.Options);
-	}
-}
+// // This code allows our Model Editor to get relevant EF Core metadata at design time.
+// // For details, please refer to https://supportcenter.devexpress.com/ticket/details/t933891.
+// public class AppContextInitializer : DbContextTypesInfoInitializerBase {
+// 	protected override DbContext CreateDbContext() {
+// 		var optionsBuilder = new DbContextOptionsBuilder<AppEFCoreDbContext>();
+// 		optionsBuilder.UseSqlServer("Integrated Security=false;Pooling=false;Data Source=.;Initial Catalog=zenlith;User ID=zenlith;Password=zenlith;TrustServerCertificate=True");
+//         return new AppEFCoreDbContext(optionsBuilder.Options);
+// 	}
+// }
 //This factory creates DbContext for design-time services. For example, it is required for database migration.
-public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppEFCoreDbContext> {
-	public AppEFCoreDbContext CreateDbContext(string[] args) {
-		throw new InvalidOperationException("Make sure that the database connection string and connection provider are correct. After that, uncomment the code below and remove this exception.");
-		//var optionsBuilder = new DbContextOptionsBuilder<AppEFCoreDbContext>();
-		//optionsBuilder.UseSqlServer("Integrated Security=SSPI;Pooling=false;Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Zenlith.App");
-		//return new AppEFCoreDbContext(optionsBuilder.Options);
-	}
-}
-[TypesInfoInitializer(typeof(AppContextInitializer))]
-public class AppEFCoreDbContext : DbContext {
-	public AppEFCoreDbContext(DbContextOptions<AppEFCoreDbContext> options) : base(options) {
+
+// [TypesInfoInitializer(typeof(AppContextInitializer))]
+public class AppEFCoreDbContext : ZenlithContext {
+	public AppEFCoreDbContext(DbContextOptions options) : base(options) {
 	}
 	//public DbSet<ModuleInfo> ModulesInfo { get; set; }
 	public DbSet<ModelDifference> ModelDifferences { get; set; }

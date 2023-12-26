@@ -22,10 +22,15 @@
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.1.12" />
     <PackageReference Include="DevExpress.ExpressApp.Validation.Blazor" Version="22.1.12" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zenlith.App.Module\Zenlith.App.Module.csproj" />
+    <ProjectReference Include="..\Zenlith.Migrations\Zenlith.Migrations.csproj" />
   </ItemGroup>
 </Project>

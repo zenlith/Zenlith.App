@@ -22,8 +22,12 @@
     <PackageReference Include="DevExpress.ExpressApp.Validation" Version="22.1.12" />
     <PackageReference Include="DevExpress.Persistent.Base" Version="22.1.12" />
     <PackageReference Include="DevExpress.Persistent.BaseImpl.EFCore" Version="22.1.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Zenlith.Model">
+      <HintPath>..\Zenlith.Model\bin\Debug\net6.0\Zenlith.Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zenlith.Model\Zenlith.Model.csproj" />
